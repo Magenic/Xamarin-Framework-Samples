@@ -220,17 +220,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RadialProgress.iOS">
-      <HintPath>..\..\..\Users\AaronLaB\Downloads\radialprogress-1.0.1.3\radialprogress-1.0.1.3\lib\ios-unified\RadialProgress.iOS.dll</HintPath>
+      <HintPath>..\..\..\..\Users\AaronLaB\Downloads\radialprogress-1.0.1.3\radialprogress-1.0.1.3\lib\ios-unified\RadialProgress.iOS.dll</HintPath>
     </Reference>
     <Reference Include="SWTableViewCell">
-      <HintPath>..\..\..\Users\AaronLaB\Downloads\swtableviewcell-0.3.7.0\swtableviewcell-0.3.7.0\lib\ios-unified\SWTableViewCell.dll</HintPath>
+      <HintPath>..\..\..\..\Users\AaronLaB\Downloads\swtableviewcell-0.3.7.0\swtableviewcell-0.3.7.0\lib\ios-unified\SWTableViewCell.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Xamarin.Mobile">
-      <HintPath>..\..\..\Users\AaronLaB\Downloads\xamarin.mobile-0.7.7\xamarin.mobile-0.7.7\lib\ios-unified\Xamarin.Mobile.dll</HintPath>
+      <HintPath>..\..\..\..\Users\AaronLaB\Downloads\xamarin.mobile-0.7.7\xamarin.mobile-0.7.7\lib\ios-unified\Xamarin.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
