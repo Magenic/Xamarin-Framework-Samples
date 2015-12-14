@@ -1,2 +1,4 @@
 # Xamarin-Framework-Samples
-Samples of using Xamarin Classic in projects
+Samples of using Xamarin  in projects
+
+Classic
