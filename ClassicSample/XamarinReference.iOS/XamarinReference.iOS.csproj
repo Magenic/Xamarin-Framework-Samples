@@ -121,7 +121,6 @@
     <Compile Include="Controller\Sidebar\SidebarController.cs" />
     <Compile Include="Controller\Sidebar\SidebarMenuArea.cs" />
     <Compile Include="Controller\StickyHeaderController.cs" />
-    <Compile Include="Controller\TakePictureController.cs" />
     <Compile Include="Controller\TasksController.cs" />
     <Compile Include="Controller\ThemeColorController.cs" />
     <Compile Include="Controller\ThemeFontController.cs" />

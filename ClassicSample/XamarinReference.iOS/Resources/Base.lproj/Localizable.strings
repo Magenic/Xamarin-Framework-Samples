@@ -8,6 +8,10 @@
 "DeveloperOptions"="Developer Options";
 "Calendar"="Calendar";
 "Camera"="Camera";
+"Cancel"="Cancel";
+"Confirm"="Confirm";
+"Delete"="Delete";
+"DeleteFileMessage"="Are you sure you would like to delete this file?";
 "PercentPrep"="In Prep";
 "PercentWork"="Work";
 "PercentDelivery"="Delivery";

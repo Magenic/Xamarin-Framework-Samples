@@ -29,19 +29,17 @@ namespace XamarinReference.iOS.Helper
             return button;
         }
 
-        public static Task<bool> ShowAlert(string title, string message, string buttonName)
+        public static Task<bool> ShowAlert(string title, string message, string buttonName, string cancelButton)
         {
-            var lookupService = Mvx.Resolve<IStringLookupService>();
-
             var tcs = new TaskCompletionSource<bool>();
             UIApplication.SharedApplication.InvokeOnMainThread(new Action(() =>
             {
-                var alert = new UIAlertView(title, message, null, lookupService.GetLocalizedString("Cancel"), buttonName);
+                var alert = new UIAlertView(title, message, null, cancelButton, buttonName);
                 alert.Clicked += (s, e) =>
                 {
                     tcs.SetResult(e.ButtonIndex != alert.CancelButtonIndex);
                 };
-
+                alert.Show();
             }));
 
             return tcs.Task;

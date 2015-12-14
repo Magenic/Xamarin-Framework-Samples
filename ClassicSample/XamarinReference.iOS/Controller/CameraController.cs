@@ -29,6 +29,10 @@ namespace XamarinReference.iOS.Controller
         //collection of files to display in the table
         private IList<string> _files;
 
+        public IList<string> Files
+        {
+            get { return _files; }
+        }
         //delegate for PicturePreviewCell
         private readonly PicturePreviewCellDelegate _cellDelegate;
 
@@ -145,6 +149,7 @@ namespace XamarinReference.iOS.Controller
         private readonly UITableView _tableView;
         private readonly CameraController _controller;
         private readonly IFileHelper _fileHelper = Mvx.Resolve<IFileHelper>();
+        private readonly IStringLookupService _lookupService = Mvx.Resolve<IStringLookupService>();
 
         public PicturePreviewCellDelegate(UITableView tableView, CameraController controller)
         {
@@ -162,16 +167,22 @@ namespace XamarinReference.iOS.Controller
                 if (!string.IsNullOrEmpty(filePath))
                 {
                     //confirm via UIAlert to delete
-                    var isDelete = await Helper.Utility.ShowAlert("Confirm", "Are you sure you would like to delete this file?", "Delete");
+                    var isDelete = await Helper.Utility.ShowAlert(_lookupService.GetLocalizedString("Confirm"),  _lookupService.GetLocalizedString("DeleteFileMessage"), _lookupService.GetLocalizedString("Delete"), _lookupService.GetLocalizedString("Cancel"));
                     if (isDelete)
                     {
                         //delete the file and reload the table
                         _fileHelper.Delete(filePath);
+                        _controller.Files.Remove(filePath);
 
                         //reload the table data without the file in it
                         _tableView.ReloadData();
                     }
+                    else
+                    {
+                        cell.HideUtilityButtons(true);
+                    }
                 }
+               
             }
         }
 
