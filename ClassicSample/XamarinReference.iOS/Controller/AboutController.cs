@@ -9,6 +9,7 @@ using Foundation;
 using UIKit;
 
 using XamarinReference.Lib.Interface;
+using XamarinReference.Lib.Services;
 
 namespace XamarinReference.iOS.Controller
 {
@@ -22,8 +23,19 @@ namespace XamarinReference.iOS.Controller
         {
             base.ViewDidLoad();
             SetupUi();
+            Getusers();
+
         }
 
+        public async void Getusers ()
+        {
+            var f = new FakeDataService();
+            var users = await f.GetUsersAsync();
+            foreach (var user in users)
+            {
+
+            }
+        }
         public override nint NumberOfSections(UITableView tableView)
         {
             //hard code how many sections to return
