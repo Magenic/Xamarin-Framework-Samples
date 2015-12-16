@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 using UIKit;
 using Foundation;
+using CoreFoundation;
 
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Network;
@@ -23,8 +24,10 @@ namespace XamarinReference.iOS.Network
             var urlRequest = new NSMutableUrlRequest
             {
                 HttpMethod = request.Method.Method,
-                Url = NSUrl.FromString(request.RequestUri.AbsoluteUri)
+                Url = NSUrl.FromString(request.RequestUri.AbsoluteUri),
+                AllowsCellularAccess = true,
             };
+
 
             var dictionary = new NSMutableDictionary();
 

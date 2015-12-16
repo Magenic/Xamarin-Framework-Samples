@@ -11,6 +11,7 @@ using XamarinReference.Lib.Interface;
 using XamarinReference.iOS.Services;
 using XamarinReference.Lib.Services;
 using XamarinReference.iOS.Helper;
+using XamarinReference.iOS.Network;
 
 namespace XamarinReference.iOS
 {
@@ -20,13 +21,14 @@ namespace XamarinReference.iOS
         {
             MvxSimpleIoCContainer.Initialize();
 
-            Mvx.RegisterType<INavigationMenuService<UIViewController>, NavigationMenuService>();
-            Mvx.RegisterType<IStringLookupService, StringLookupService>();
-            Mvx.RegisterType<IVersionInfo, VersionInfoService>();
-            Mvx.RegisterType<IFontInfoService, FontInfoService >();
-            Mvx.RegisterType<IJobsService, JobsService>();
-            Mvx.RegisterType<IFileHelper, FileHelper>();
-            Mvx.RegisterType<IMediaService, MediaService>();
+            Mvx.LazyConstructAndRegisterSingleton<INavigationMenuService<UIViewController>, NavigationMenuService>();
+            Mvx.LazyConstructAndRegisterSingleton<IStringLookupService, StringLookupService>();
+            Mvx.LazyConstructAndRegisterSingleton<IVersionInfo, VersionInfoService>();
+            Mvx.LazyConstructAndRegisterSingleton<IFontInfoService, FontInfoService >();
+            Mvx.LazyConstructAndRegisterSingleton<IJobsService, JobsService>();
+            Mvx.LazyConstructAndRegisterSingleton<IFileHelper, FileHelper>();
+            Mvx.LazyConstructAndRegisterSingleton<IMediaService, MediaService>();
+            Mvx.LazyConstructAndRegisterSingleton<ICreateHttpClientHelper, NSUrlConnectionHandlerCreator>();
         }
     }
 }

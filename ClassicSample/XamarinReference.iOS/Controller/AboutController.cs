@@ -31,9 +31,12 @@ namespace XamarinReference.iOS.Controller
         {
             var f = new FakeDataService();
             var users = await f.GetUsersAsync();
-            foreach (var user in users)
+            if (users != null)
             {
+                foreach (var user in users)
+                {
 
+                }
             }
         }
         public override nint NumberOfSections(UITableView tableView)
