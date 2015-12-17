@@ -45,20 +45,18 @@
     <Compile Include="Interface\IJobsService.cs" />
     <Compile Include="Interface\IMediaService.cs" />
     <Compile Include="Interface\INavigationMenuService.cs" />
-    <Compile Include="Interface\IFakeDataService.cs" />
+    <Compile Include="Interface\IITunesDataService.cs" />
     <Compile Include="Interface\IStringLookupService.cs" />
     <Compile Include="Interface\IVersionInfo.cs" />
-    <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Company.cs" />
     <Compile Include="Model\FontInfo.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\LocalizedTerm.cs" />
+    <Compile Include="Model\iTunes.cs" />
     <Compile Include="Model\NavigationMenuItem.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Network\ExtendedHttpClientHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseHttpService.cs" />
-    <Compile Include="Services\FakeDataService.cs" />
+    <Compile Include="Services\ITunesDataService.cs" />
     <Compile Include="Services\JobsService.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
   </ItemGroup>

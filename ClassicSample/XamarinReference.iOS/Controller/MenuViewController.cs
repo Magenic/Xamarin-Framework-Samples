@@ -82,9 +82,9 @@ namespace XamarinReference.iOS.Controller
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
 
-            NavController.PopToRootViewController(false);
-            NavController.PushViewController(_menuItems[indexPath.Row].Manager, false);     
-            SidebarController.CloseMenu();
+            NavMenuController.PopToRootViewController(false);
+            NavMenuController.PushViewController(_menuItems[indexPath.Row].Manager, false);     
+            SidebarMenuController.CloseMenu();
         }
 
         public override void DidReceiveMemoryWarning()

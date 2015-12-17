@@ -33,8 +33,8 @@ namespace XamarinReference.iOS.Services
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
-                    Manager = new TasksController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Tasks")
+                    Manager = new TabController(),
+                    Title = _LocalizedStrings.GetLocalizedString("Tab Navigation")
                 },
                 new NavigationMenuItem<UIViewController>
                 {

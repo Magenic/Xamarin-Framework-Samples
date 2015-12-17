@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XamarinReference.iOS.Controller
 {
-    public class TasksController : BaseTableViewController
+    public class TopMusicVideosController : BaseTableViewController
     {
     }
 }

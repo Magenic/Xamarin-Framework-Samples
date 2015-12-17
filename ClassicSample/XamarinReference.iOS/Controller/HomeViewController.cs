@@ -11,22 +11,22 @@ namespace XamarinReference.iOS.Controller
     {
         private const int _menuWidth = 270;
 
-        public SidebarController SidebarController { get; private set; } 
-        public NavController NavController { get; private set; }
+        public SidebarController SidebarMenuController { get; private set; } 
+        public NavController NavMenuController { get; private set; }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            NavController = new NavController();
+            this.NavMenuController = new NavController();
 
             //set the default view
-            NavController.PushViewController(new BlankViewController(), false);
-            NavController.PushViewController(new AboutController(), false);
+            this.NavMenuController.PushViewController(new BlankViewController(), false);
+            this.NavMenuController.PushViewController(new AboutController(), false);
 
             //load the side bar controller to create the hamburger menu
-            SidebarController = new SidebarController(this, NavController, new MenuViewController(_menuWidth));
-            SidebarController.MenuWidth = _menuWidth;
-            SidebarController.MenuLocation = MenuLocations.Left;
+            this.SidebarMenuController = new SidebarController(this, NavMenuController, new MenuViewController(_menuWidth));
+            this.SidebarMenuController.MenuWidth = _menuWidth;
+            this.SidebarMenuController.MenuLocation = MenuLocations.Left;
         }
 
         public override void ViewWillAppear(bool animated)
@@ -40,18 +40,18 @@ namespace XamarinReference.iOS.Controller
         {
             base.Dispose(disposing);
 
-            if (SidebarController != null)
+            if (SidebarMenuController != null)
             {
-                SidebarController.RemoveFromParentViewController();
-                SidebarController.Dispose();
-                SidebarController = null;
+                SidebarMenuController.RemoveFromParentViewController();
+                SidebarMenuController.Dispose();
+                SidebarMenuController = null;
             }
 
-            if (NavController != null)
+            if (NavMenuController != null)
             {
-                NavController.RemoveFromParentViewController();
-                NavController.Dispose();
-                NavController = null;
+                NavMenuController.RemoveFromParentViewController();
+                NavMenuController.Dispose();
+                NavMenuController = null;
             }
           
         }

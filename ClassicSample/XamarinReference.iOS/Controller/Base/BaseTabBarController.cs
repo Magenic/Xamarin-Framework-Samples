@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using UIKit;
+using Foundation;
+using Cirrious.CrossCore;
 using XamarinReference.Lib.Interface;
 
 namespace XamarinReference.iOS.Controller
 {
-    public abstract class BaseTableViewController : UITableViewController
+    public class BaseTabBarController : UITabBarController 
     {
         protected readonly IStringLookupService _localizeLookupService = Mvx.Resolve<IStringLookupService>();
         private UIBarButtonItem _menuButton;
@@ -36,7 +35,9 @@ namespace XamarinReference.iOS.Controller
         {
             base.ViewDidLoad();
             //Helper.NavigationBarHelper.SetupNavigationBar(SidebarMenuController, NavMenuController, NavigationItem, _menuButton);
-            _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png") , UIBarButtonItemStyle.Plain , (sender, args) =>
+            _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png")
+            , UIBarButtonItemStyle.Plain
+            , (sender, args) =>
             {
                 SidebarMenuController.ToggleMenu();
             });
@@ -46,6 +47,7 @@ namespace XamarinReference.iOS.Controller
             NavMenuController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
             NavMenuController.NavigationBar.TintColor = Helper.Theme.Color.C1;
             NavMenuController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
+
         }
 
         protected override void Dispose(bool disposing)
@@ -60,6 +62,5 @@ namespace XamarinReference.iOS.Controller
                 }
             }
         }
-
     }
 }

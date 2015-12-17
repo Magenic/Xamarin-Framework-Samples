@@ -23,22 +23,8 @@ namespace XamarinReference.iOS.Controller
         {
             base.ViewDidLoad();
             SetupUi();
-            Getusers();
-
         }
 
-        public async void Getusers ()
-        {
-            var f = new FakeDataService();
-            var users = await f.GetUsersAsync();
-            if (users != null)
-            {
-                foreach (var user in users)
-                {
-
-                }
-            }
-        }
         public override nint NumberOfSections(UITableView tableView)
         {
             //hard code how many sections to return

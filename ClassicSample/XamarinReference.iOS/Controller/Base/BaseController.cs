@@ -15,38 +15,39 @@ namespace XamarinReference.iOS.Controller
         protected readonly IStringLookupService _localizeLookupService = Mvx.Resolve<IStringLookupService>();
         private UIBarButtonItem _menuButton;
 
-        protected SidebarNavigation.SidebarController SidebarController
+        protected SidebarNavigation.SidebarController SidebarMenuController
         {
             get
             {
-                return (UIApplication.SharedApplication.Delegate as AppDelegate).HomeViewController.SidebarController;
+                return (UIApplication.SharedApplication.Delegate as AppDelegate).HomeViewController.SidebarMenuController;
             }
         }
 
         // provide access to the sidebar controller to all inheriting controllers
-        protected NavController NavController
+        protected NavController NavMenuController
         {
             get
             {
-                return (UIApplication.SharedApplication.Delegate as AppDelegate).HomeViewController.NavController;
+                return (UIApplication.SharedApplication.Delegate as AppDelegate).HomeViewController.NavMenuController;
             }
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            //Helper.NavigationBarHelper.SetupNavigationBar(SidebarMenuController, NavMenuController, NavigationItem, _menuButton);
             _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png")
                     , UIBarButtonItemStyle.Plain
-                    , (sender, args) => {
-                        SidebarController.ToggleMenu();
+                    , (sender, args) =>
+                    {
+                        SidebarMenuController.ToggleMenu();
                     });
             //menuButton.TintColor = Helper.Theme.Color.C2;
             NavigationItem.SetLeftBarButtonItem(_menuButton, true);
-            NavController.NavigationBar.BackgroundColor = Helper.Theme.Color.C2;
-            NavController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
-            NavController.NavigationBar.TintColor = Helper.Theme.Color.C1;
-            NavController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
+            NavMenuController.NavigationBar.BackgroundColor = Helper.Theme.Color.C2;
+            NavMenuController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
+            NavMenuController.NavigationBar.TintColor = Helper.Theme.Color.C1;
+            NavMenuController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
 
             this.View.BackgroundColor = Helper.Theme.Color.C1;
         }
