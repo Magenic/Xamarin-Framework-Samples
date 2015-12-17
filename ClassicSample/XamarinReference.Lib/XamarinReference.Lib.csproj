@@ -40,10 +40,10 @@
     <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Interface\IFontInfoService.cs" />
     <Compile Include="Interface\IHttpClientHelper.cs" />
+    <Compile Include="Interface\IITunesDataService.cs" />
     <Compile Include="Interface\IJobsService.cs" />
     <Compile Include="Interface\IMediaService.cs" />
     <Compile Include="Interface\INavigationMenuService.cs" />
-    <Compile Include="Interface\IITunesDataService.cs" />
     <Compile Include="Interface\IStringLookupService.cs" />
     <Compile Include="Interface\IVersionInfo.cs" />
     <Compile Include="Model\FontInfo.cs" />
