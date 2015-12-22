@@ -46,6 +46,13 @@ namespace XamarinReference.iOS.Controller
             NavMenuController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
             NavMenuController.NavigationBar.TintColor = Helper.Theme.Color.C1;
             NavMenuController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
+
+            if (this.TabBarController != null && this.TabBarController.TabBar != null)
+            {
+                var adjustForTabBarInsets = new UIEdgeInsets(0, 0, this.TabBarController.TabBar.Frame.Height, 0);
+                this.TableView.ContentInset = adjustForTabBarInsets;
+                this.TableView.ScrollIndicatorInsets = adjustForTabBarInsets;
+            }
         }
 
         protected override void Dispose(bool disposing)

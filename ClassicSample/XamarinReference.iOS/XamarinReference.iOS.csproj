@@ -126,7 +126,8 @@
     <Compile Include="Controller\ThemeColorController.cs" />
     <Compile Include="Controller\ThemeFontController.cs" />
     <Compile Include="Controller\TopMovieRentalsController.cs" />
-    <Compile Include="Controller\TopMoviesController.cs" />
+    <Compile Include="Controller\TopMoviesByController.cs" />
+    <Compile Include="Controller\TopMoviesCategoryController.cs" />
     <Compile Include="Controller\TopMusicVideosController.cs" />
     <Compile Include="Controls\Cell\BusinessCardCell.cs" />
     <Compile Include="Controls\Cell\PicturePreviewCell.cs" />

@@ -7,10 +7,16 @@ using Newtonsoft.Json;
 
 namespace XamarinReference.Lib.Model.iTunes
 {
-    public class Attributes
+    public class Name
     {
-        [JsonProperty("height")]
-        public string Height { get; set; }
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class Uri
+    {
+        [JsonProperty("label")]
+        public string Label { get; set; }
     }
 
     public class Author
@@ -22,14 +28,127 @@ namespace XamarinReference.Lib.Model.iTunes
         public Uri Uri { get; set; }
     }
 
+    public class ImName
+    {
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class Rights
+    {
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class Attributes
+    {
+        [JsonProperty("height")]
+        public string Height { get; set; }
+    }
+
+    public class ImImage
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class Summary
+    {
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class ImRentalPrice
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class ImPrice
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class ImContentType
+    {
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class Title
+    {
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class ImDuration
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class Link
+    {
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+
+        [JsonProperty("im:duration")]
+        public ImDuration ImDuration { get; set; }
+    }
+
+    public class Id
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class ImArtist
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
     public class Category
     {
+
+        [JsonProperty("attributes")]
+        public Attributes Attributes { get; set; }
+    }
+
+    public class ImReleaseDate
+    {
+
+        [JsonProperty("label")]
+        public DateTime Label { get; set; }
+
         [JsonProperty("attributes")]
         public Attributes Attributes { get; set; }
     }
 
     public class Entry
     {
+
         [JsonProperty("im:name")]
         public ImName ImName { get; set; }
 
@@ -37,7 +156,7 @@ namespace XamarinReference.Lib.Model.iTunes
         public Rights Rights { get; set; }
 
         [JsonProperty("im:image")]
-        public IList<XamarinReference.Lib.Model.iTunes.ImImage> ImImage { get; set; }
+        public List<ImImage> ImImage { get; set; }
 
         [JsonProperty("summary")]
         public Summary Summary { get; set; }
@@ -55,7 +174,7 @@ namespace XamarinReference.Lib.Model.iTunes
         public Title Title { get; set; }
 
         [JsonProperty("link")]
-        public IList<XamarinReference.Lib.Model.iTunes.Link> Link { get; set; }
+        public List<Link> Link { get; set; }
 
         [JsonProperty("id")]
         public Id Id { get; set; }
@@ -70,13 +189,28 @@ namespace XamarinReference.Lib.Model.iTunes
         public ImReleaseDate ImReleaseDate { get; set; }
     }
 
+    public class Updated
+    {
+
+        [JsonProperty("label")]
+        public DateTime Label { get; set; }
+    }
+
+    public class Icon
+    {
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
     public class Feed
     {
+
         [JsonProperty("author")]
         public Author Author { get; set; }
 
         [JsonProperty("entry")]
-        public IList<XamarinReference.Lib.Model.iTunes.Entry> Entry { get; set; }
+        public List<Entry> Entry { get; set; }
 
         [JsonProperty("updated")]
         public Updated Updated { get; set; }
@@ -91,95 +225,15 @@ namespace XamarinReference.Lib.Model.iTunes
         public Icon Icon { get; set; }
 
         [JsonProperty("link")]
-        public IList<XamarinReference.Lib.Model.iTunes.Link> Link { get; set; }
+        public List<Link> Link { get; set; }
 
         [JsonProperty("id")]
         public Id Id { get; set; }
     }
-    public class Icon
+
+    public class Movie 
     {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
 
-    public class Id
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-
-    public class ImArtist
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class ImContentType
-    {
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-    public class ImDuration
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class ImImage
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-    public class ImName
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class ImPrice
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-
-    public class ImReleaseDate
-    {
-        [JsonProperty("label")]
-        public DateTime Label { get; set; }
-
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-
-    public class ImRentalPrice
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-    }
-
-    public class Link
-    {
-        [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
-
-        [JsonProperty("im:duration")]
-        public ImDuration ImDuration { get; set; }
-    }
-
-    public class Movie
-    {
         [JsonProperty("feed")]
         public Feed Feed { get; set; }
 
@@ -189,6 +243,7 @@ namespace XamarinReference.Lib.Model.iTunes
             TopRentals,
         }
     }
+
 
     public class MovieCategory
     {
@@ -234,41 +289,5 @@ namespace XamarinReference.Lib.Model.iTunes
             this.Categories.Add("Western", "4418");
         }
     }
-
-    public class Name
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class Rights
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class Summary
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
-    public class Title
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-    public class Updated
-    {
-        [JsonProperty("label")]
-        public DateTime Label { get; set; }
-    }
-
-    public class Uri
-    {
-        [JsonProperty("label")]
-        public string Label { get; set; }
-    }
-
 
 }

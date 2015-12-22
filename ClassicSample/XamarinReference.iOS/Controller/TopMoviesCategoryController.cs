@@ -8,19 +8,20 @@ using XamarinReference.Lib.Model;
 using UIKit;
 using Foundation;
 using Cirrious.CrossCore;
+using CoreGraphics;
 
 namespace XamarinReference.iOS.Controller
 {
-    public class TopMoviesController : BaseTableViewController
+    public class TopMoviesCategoryController : BaseTableViewController
     {
         private readonly IITunesDataService _itunesService = Mvx.Resolve<IITunesDataService>();
         private readonly List<string> _genres;
 
         private static readonly string CellReuse = "GenreCell";
 
-        public TopMoviesController()
+        public TopMoviesCategoryController()
         {
-            _genres = _itunesService.GetMovieGenres();    
+            _genres = _itunesService.GetMovieGenres();
         }
 
         public override void ViewDidLoad()
@@ -44,11 +45,17 @@ namespace XamarinReference.iOS.Controller
             return cell; 
         }
 
-        private void SetupUi()
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
+            var genre = _genres[indexPath.Row];
+            this.NavMenuController.PushViewController(new TopMoviesController(genre), true);
         }
 
+
+        private void SetupUi()
+        {
+            this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
+        }
 
     }
 }

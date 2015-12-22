@@ -18,7 +18,7 @@ namespace XamarinReference.iOS.Controller
 
         private void SetupTabs()
         {
-            tabTopMovies = new TopMoviesController();
+            tabTopMovies = new TopMoviesCategoryController();
             tabTopMovies.Title = _localizeLookupService.GetLocalizedString("TopMovies");
 
             tabTopMovieRentals = new TopMovieRentalsController();

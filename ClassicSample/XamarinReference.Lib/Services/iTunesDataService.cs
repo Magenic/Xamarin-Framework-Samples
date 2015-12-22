@@ -36,7 +36,7 @@ namespace XamarinReference.Lib.Services
 
         public async Task<Model.iTunes.Movie> GetMoviesAsync(Model.iTunes.Movie.ListingType type = Model.iTunes.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
         {
-            Model.iTunes.Movie movie = null;
+            Model.iTunes.Movie movies = null;
             try
             {
                 var uri = BuildUrl(type, count, genre);
@@ -44,8 +44,8 @@ namespace XamarinReference.Lib.Services
                 var response = httpResponseMessage;
                 if (response.IsSuccessStatusCode)
                 {
-                    string json = await response.Content.ReadAsStringAsync();
-                    movie = JsonConvert.DeserializeObject<Model.iTunes.Movie>(json);
+                    var json = await response.Content.ReadAsStringAsync();
+                    movies = JsonConvert.DeserializeObject<Model.iTunes.Movie>(json);
                 }
                 else
                     response = (HttpResponseMessage)null;
@@ -54,7 +54,7 @@ namespace XamarinReference.Lib.Services
             {
                 this.DealWithErrors(ex);
             }
-            return movie;
+            return movies;
         }
 
         public string BuildUrl(Model.iTunes.Movie.ListingType type = Model.iTunes.Movie.ListingType.TopMovies, int limit = 0, string genre = "4413")
