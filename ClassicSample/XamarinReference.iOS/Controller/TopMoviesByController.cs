@@ -49,9 +49,7 @@ namespace XamarinReference.iOS.Controller
             var cell = tableView.DequeueReusableCell(CellReuse, indexPath);
             cell.Accessory = UITableViewCellAccessory.None;
             cell.TextLabel.Text = movie.ImName.Label;
-            //cell.DetailTextLabel.Text = movie.Summary.Label;
             cell.TextLabel.Font = Helper.Theme.Font.F2(Helper.Theme.Font.H4);
-            //cell.DetailTextLabel.Font = Helper.Theme.Font.F2(Helper.Theme.Font.H6); 
             return cell;
         }
 
