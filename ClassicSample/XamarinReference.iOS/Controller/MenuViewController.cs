@@ -51,7 +51,7 @@ namespace XamarinReference.iOS.Controller
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-            this.View.BackgroundColor = Helper.Theme.Color.C4;
+            this.View.BackgroundColor = Helper.Theme.Color.C2;
 
             //create menu tableView
             CreateMenuTableView();
@@ -72,7 +72,7 @@ namespace XamarinReference.iOS.Controller
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, CellReuse);
             cell.SelectionStyle = UITableViewCellSelectionStyle.None;
-            cell.BackgroundColor = Helper.Theme.Color.C3;
+            cell.BackgroundColor = Helper.Theme.Color.C2;
             cell.TextLabel.TextColor = Helper.Theme.Color.C1;
             cell.TextLabel.Font = Helper.Theme.Font.F3(Helper.Theme.Font.H4);
             cell.TextLabel.Text = _menuItems[indexPath.Row].Title;
@@ -99,8 +99,8 @@ namespace XamarinReference.iOS.Controller
             //this.TableView = new UITableView(new CGRect(0, 60, menuWidth, View.Bounds.Height));
 
             //setup menu colors
-            this.TableView.BackgroundColor = Helper.Theme.Color.C3;
-            this.TableView.SeparatorColor = Helper.Theme.Color.C4;
+            this.TableView.BackgroundColor = Helper.Theme.Color.C2;
+            this.TableView.SeparatorColor = Helper.Theme.Color.C3;
 
         }
 

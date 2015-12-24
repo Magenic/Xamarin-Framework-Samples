@@ -143,8 +143,9 @@
     <Compile Include="Controller\ThemeColorController.cs" />
     <Compile Include="Controller\ThemeFontController.cs" />
     <Compile Include="Controller\TopMovieRentalsController.cs" />
-    <Compile Include="Controller\TopMoviesByController.cs" />
+    <Compile Include="Controller\TopMoviesController.cs" />
     <Compile Include="Controller\TopMoviesCategoryController.cs" />
+    <Compile Include="Controller\TopMoviesNavigationController.cs" />
     <Compile Include="Controller\TopMusicVideosController.cs" />
     <Compile Include="Controls\Cell\BusinessCardCell.cs" />
     <Compile Include="Controls\Cell\PicturePreviewCell.cs" />
@@ -210,6 +211,18 @@
     <BundleResource Include="Resources\Icon-Small-50.png" />
     <BundleResource Include="Resources\Icon-Small-50%402x.png" />
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\f145%403x.png" />
+    <BundleResource Include="Resources\f145%402x.png" />
+    <BundleResource Include="Resources\f145.png" />
+    <BundleResource Include="Resources\f091%403x.png" />
+    <BundleResource Include="Resources\f091%402x.png" />
+    <BundleResource Include="Resources\f091.png" />
+    <BundleResource Include="Resources\f008%403x.png" />
+    <BundleResource Include="Resources\f008%402x.png" />
+    <BundleResource Include="Resources\f008.png" />
+    <BundleResource Include="Resources\f001%403x.png" />
+    <BundleResource Include="Resources\f001%402x.png" />
+    <BundleResource Include="Resources\f001.png" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>

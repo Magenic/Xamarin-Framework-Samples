@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace XamarinReference.iOS.Controller
 {
-    public class TopMoviesController : BaseTableViewController
+    public class TopMoviesController : BaseTableViewController 
     {
         private readonly IITunesDataService _itunesService = Mvx.Resolve<IITunesDataService>();
         private static readonly string CellReuse = "MovieCell";
@@ -23,9 +23,12 @@ namespace XamarinReference.iOS.Controller
         private readonly string _genre;
         private Lib.Model.iTunes.Movie _movies;
 
-        public TopMoviesController(string selectedGenre)
+        private readonly UINavigationController _navController;
+
+        public TopMoviesController(string selectedGenre, UINavigationController navController )
         {
             _genre = selectedGenre;
+            _navController = navController;
         }
 
         public override async void ViewDidLoad()
@@ -33,6 +36,11 @@ namespace XamarinReference.iOS.Controller
             base.ViewDidLoad();
             await SetupUi();
             this.TableView.ReloadData();
+        }
+
+        public override void ViewWillLayoutSubviews()
+        {
+        
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)
@@ -63,18 +71,19 @@ namespace XamarinReference.iOS.Controller
             this.Title = _localizeLookupService.GetLocalizedString("TopMovies");
 
             //setup the back button to go back to the category listing
-            _backButton = new UIBarButtonItem
+            var tabController = (TabController)this.TabBarController;
+            if (tabController != null)
             {
-                Image = UIImage.FromBundle("back_white.png"),
-            };
+                tabController.SetupBackNavigationButton();
+        
+                //handle when the back button is clicked
+                tabController.BackButton.Clicked += (o, e) =>
+                {
+                    _navController.PopViewController(true);
+                    tabController.SetMenuNavigationButton();
+                };
 
-            //handle when the back button is clicked
-            _backButton.Clicked += (o, e) =>
-            {
-                this.NavMenuController.PopViewController(true);
-            };
-
-            this.NavigationItem.LeftBarButtonItem = _backButton;
+            }
 
             //bring up loading screen
             _movies = await task;

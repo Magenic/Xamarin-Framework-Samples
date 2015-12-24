@@ -40,7 +40,6 @@ namespace XamarinReference.iOS.Controller
             {
                 SidebarMenuController.ToggleMenu();
             });
-            //menuButton.TintColor = Helper.Theme.Color.C2;
             NavigationItem.SetLeftBarButtonItem(_menuButton, true);
             NavMenuController.NavigationBar.BackgroundColor = Helper.Theme.Color.C2;
             NavMenuController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;

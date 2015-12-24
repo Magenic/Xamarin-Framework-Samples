@@ -18,11 +18,12 @@ namespace XamarinReference.iOS.Controller
         private readonly List<string> _genres;
 
         private static readonly string CellReuse = "GenreCell";
+        private UINavigationController _navController;
 
-
-        public TopMoviesCategoryController()
+        public TopMoviesCategoryController(UINavigationController navController)
         {
             _genres = _itunesService.GetMovieGenres();
+            _navController = navController;
         }
 
         public override void ViewDidLoad()
@@ -49,17 +50,15 @@ namespace XamarinReference.iOS.Controller
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             var genre = _genres[indexPath.Row];
-            this.NavMenuController.PushViewController(new TopMoviesController(genre), true);
+            _navController.PushViewController(new TopMoviesController(genre, _navController), true);
         }
 
 
         private void SetupUi()
         {
             this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
-
-
+            this.Title = _localizeLookupService.GetLocalizedString("TopMovies");
         }
-
 
     }
 }

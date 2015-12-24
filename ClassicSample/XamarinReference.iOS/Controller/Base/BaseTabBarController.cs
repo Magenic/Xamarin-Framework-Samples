@@ -35,19 +35,22 @@ namespace XamarinReference.iOS.Controller
         {
             base.ViewDidLoad();
             //Helper.NavigationBarHelper.SetupNavigationBar(SidebarMenuController, NavMenuController, NavigationItem, _menuButton);
-            _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png")
-            , UIBarButtonItemStyle.Plain
-            , (sender, args) =>
-            {
-                SidebarMenuController.ToggleMenu();
-            });
-            //menuButton.TintColor = Helper.Theme.Color.C2;
-            NavigationItem.SetLeftBarButtonItem(_menuButton, true);
+            SetMenuNavigationButton();
             NavMenuController.NavigationBar.BackgroundColor = Helper.Theme.Color.C2;
             NavMenuController.NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
             NavMenuController.NavigationBar.TintColor = Helper.Theme.Color.C1;
             NavMenuController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
+        }
 
+        public void SetMenuNavigationButton ()
+        {
+            _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png")
+                        , UIBarButtonItemStyle.Plain
+                        , (sender, args) =>
+                        {
+                            SidebarMenuController.ToggleMenu();
+                        });
+            NavigationItem.SetLeftBarButtonItem(_menuButton, true);
         }
 
         protected override void Dispose(bool disposing)
