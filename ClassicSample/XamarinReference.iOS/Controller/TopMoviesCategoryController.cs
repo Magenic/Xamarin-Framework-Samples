@@ -19,6 +19,7 @@ namespace XamarinReference.iOS.Controller
 
         private static readonly string CellReuse = "GenreCell";
 
+
         public TopMoviesCategoryController()
         {
             _genres = _itunesService.GetMovieGenres();
@@ -55,7 +56,10 @@ namespace XamarinReference.iOS.Controller
         private void SetupUi()
         {
             this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
+
+
         }
+
 
     }
 }

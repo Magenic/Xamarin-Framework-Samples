@@ -19,7 +19,21 @@ namespace XamarinReference.Lib.Services
         private string _limit = "/limit=";
         private string _genre = "/genre=";
 
-        //this is a test
+
+        public string GetMovieGenreByKey(string key)
+        {
+            try
+            {
+                return new Model.iTunes.MovieCategory().Categories.SingleOrDefault(x => x.Key == key).Value;
+            }
+            catch (Exception ex)
+            {
+
+                this.DealWithErrors(ex);
+            }
+            return string.Empty;
+        }
+
         public List<string> GetMovieGenres()
         {
             List<string> list = null;
@@ -37,6 +51,10 @@ namespace XamarinReference.Lib.Services
         public async Task<Model.iTunes.Movie> GetMoviesAsync(Model.iTunes.Movie.ListingType type = Model.iTunes.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
         {
             Model.iTunes.Movie movies = null;
+            if (genre != "4413")
+            {
+                genre = this.GetMovieGenreByKey(genre);
+            }
             try
             {
                 var uri = BuildUrl(type, count, genre);

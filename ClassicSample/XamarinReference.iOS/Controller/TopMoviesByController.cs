@@ -18,8 +18,9 @@ namespace XamarinReference.iOS.Controller
         private readonly IITunesDataService _itunesService = Mvx.Resolve<IITunesDataService>();
         private static readonly string CellReuse = "MovieCell";
 
-        private readonly string _genre;
+        private UIBarButtonItem _backButton;
 
+        private readonly string _genre;
         private Lib.Model.iTunes.Movie _movies;
 
         public TopMoviesController(string selectedGenre)
@@ -60,10 +61,42 @@ namespace XamarinReference.iOS.Controller
 
             this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
             this.Title = _localizeLookupService.GetLocalizedString("TopMovies");
-            //bring up loading screen
 
+            //setup the back button to go back to the category listing
+            _backButton = new UIBarButtonItem
+            {
+                Image = UIImage.FromBundle("back_white.png"),
+            };
+
+            //handle when the back button is clicked
+            _backButton.Clicked += (o, e) =>
+            {
+                this.NavMenuController.PopViewController(true);
+            };
+
+            this.NavigationItem.LeftBarButtonItem = _backButton;
+
+            //bring up loading screen
             _movies = await task;
         }
 
+
+        /// <summary>
+        /// Dispose - clean up memory
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                if (_backButton != null)
+                {
+                    _backButton.Dispose();
+                    _backButton = null;
+                }
+            }
+        }
     }
 }
