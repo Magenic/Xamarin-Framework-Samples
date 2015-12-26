@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace XamarinReference.Lib.Model.iTunes
+namespace XamarinReference.Lib.Model.iTunes.Movies
 {
     public class Name
     {
@@ -191,21 +191,18 @@ namespace XamarinReference.Lib.Model.iTunes
 
     public class Updated
     {
-
         [JsonProperty("label")]
         public DateTime Label { get; set; }
     }
 
     public class Icon
     {
-
         [JsonProperty("label")]
         public string Label { get; set; }
     }
 
     public class Feed
     {
-
         [JsonProperty("author")]
         public Author Author { get; set; }
 
@@ -233,7 +230,6 @@ namespace XamarinReference.Lib.Model.iTunes
 
     public class Movie 
     {
-
         [JsonProperty("feed")]
         public Feed Feed { get; set; }
 
@@ -243,7 +239,6 @@ namespace XamarinReference.Lib.Model.iTunes
             TopRentals,
         }
     }
-
 
     public class MovieCategory
     {
@@ -289,5 +284,4 @@ namespace XamarinReference.Lib.Model.iTunes
             this.Categories.Add("Western", "4418");
         }
     }
-
 }

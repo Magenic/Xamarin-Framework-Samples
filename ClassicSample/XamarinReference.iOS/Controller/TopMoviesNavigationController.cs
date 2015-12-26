@@ -15,8 +15,15 @@ namespace XamarinReference.iOS.Controller
     public class TopMoviesNavigationController:UINavigationController
     {
 
-        public TopMoviesNavigationController()
+        protected readonly IStringLookupService _localizeLookupService = Mvx.Resolve<IStringLookupService>();
+        private TopMoviesCategoryController.MovieControllerType _controllerType; 
+        
+        public bool IsCategorySelected { get; set; }
+
+        public TopMoviesNavigationController(TopMoviesCategoryController.MovieControllerType controllerType)
         {
+            _controllerType = controllerType;
+            IsCategorySelected = false;
             SetupRootController();
         }
 
@@ -25,9 +32,17 @@ namespace XamarinReference.iOS.Controller
             base.ViewDidLoad();
 
         }
+
+        public void SetTitle(string selectedGenre)
+        {
+            var selectedController = (_controllerType == TopMoviesCategoryController.MovieControllerType.TopMovies) ? _localizeLookupService.GetLocalizedString("TopMovies") : _localizeLookupService.GetLocalizedString("TopMovieRentals");
+
+            TabBarController.Title = string.Format("{0} - {1}", selectedController, selectedGenre);
+        }
+
         private void SetupRootController()
         {
-            this.PushViewController(new TopMoviesCategoryController(this), false);
+            this.PushViewController(new TopMoviesCategoryController(this, _controllerType), false);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +14,7 @@ namespace XamarinReference.Lib.Services
         private string _urlBase = "https://itunes.apple.com/us/rss/";
         private string _movieRentals = "/topvideorentals";
         private string _topMovies = "/topmovies";
+        private string _topMusicVideos = "/topmusicvideos";
         private string _limit = "/limit=";
         private string _genre = "/genre=";
 
@@ -24,7 +23,7 @@ namespace XamarinReference.Lib.Services
         {
             try
             {
-                return new Model.iTunes.MovieCategory().Categories.SingleOrDefault(x => x.Key == key).Value;
+                return new Model.iTunes.Movies.MovieCategory().Categories.SingleOrDefault(x => x.Key == key).Value;
             }
             catch (Exception ex)
             {
@@ -34,12 +33,25 @@ namespace XamarinReference.Lib.Services
             return string.Empty;
         }
 
-        public List<string> GetMovieGenres()
+        public string GetMusicViceoGenreByKey(string key)
+        {
+            try
+            {
+                return new Model.iTunes.MusicVideos.MusicVideoCategory().Categories.SingleOrDefault(x => x.Key == key).Value;
+            }
+            catch (Exception ex)
+            {
+                this.DealWithErrors(ex);
+            }
+            return string.Empty;
+        }
+
+        public List<string> GetMusicVideoGenres()
         {
             List<string> list = null;
             try
             {
-                list = new Model.iTunes.MovieCategory().Categories.Select(x => x.Key).ToList();
+                list = new Model.iTunes.MusicVideos.MusicVideoCategory().Categories.Select(x => x.Key).ToList();
             }
             catch (Exception ex)
             {
@@ -48,22 +60,36 @@ namespace XamarinReference.Lib.Services
             return list;
         }
 
-        public async Task<Model.iTunes.Movie> GetMoviesAsync(Model.iTunes.Movie.ListingType type = Model.iTunes.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
+        public List<string> GetMovieGenres()
         {
-            Model.iTunes.Movie movies = null;
+            List<string> list = null;
+            try
+            {
+                list = new Model.iTunes.Movies.MovieCategory().Categories.Select(x => x.Key).ToList();
+            }
+            catch (Exception ex)
+            {
+                this.DealWithErrors(ex);
+            }
+            return list;
+        }
+
+        public async Task<Model.iTunes.Movies.Movie> GetMoviesAsync(Model.iTunes.Movies.Movie.ListingType type = Model.iTunes.Movies.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
+        {
+            Model.iTunes.Movies.Movie movies = null;
             if (genre != "4413")
             {
                 genre = this.GetMovieGenreByKey(genre);
             }
             try
             {
-                var uri = BuildUrl(type, count, genre);
+                var uri = BuildMoviesUrl(type, count, genre);
                 var httpResponseMessage = await this.GetAsync(new Uri(uri), null);
                 var response = httpResponseMessage;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    movies = JsonConvert.DeserializeObject<Model.iTunes.Movie>(json);
+                    movies = JsonConvert.DeserializeObject<Model.iTunes.Movies.Movie>(json);
                 }
                 else
                     response = (HttpResponseMessage)null;
@@ -75,10 +101,10 @@ namespace XamarinReference.Lib.Services
             return movies;
         }
 
-        public string BuildUrl(Model.iTunes.Movie.ListingType type = Model.iTunes.Movie.ListingType.TopMovies, int limit = 0, string genre = "4413")
+        public string BuildMoviesUrl(Model.iTunes.Movies.Movie.ListingType type = Model.iTunes.Movies.Movie.ListingType.TopMovies, int limit = 0, string genre = "4413")
         {
             var stringBuilder = new StringBuilder(this._urlBase);
-            if (type == Model.iTunes.Movie.ListingType.TopMovies)
+            if (type == Model.iTunes.Movies.Movie.ListingType.TopMovies)
                 stringBuilder.Append(this._topMovies);
             else
                 stringBuilder.Append(this._movieRentals);

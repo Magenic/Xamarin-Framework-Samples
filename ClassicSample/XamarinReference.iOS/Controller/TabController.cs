@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using UIKit;
@@ -36,6 +37,21 @@ namespace XamarinReference.iOS.Controller
             this.HidesBottomBarWhenPushed = false;
             SetupTabs();
         }
+        public override void ItemSelected(UITabBar tabbar, UITabBarItem item)
+        {
+            var controller = ViewControllers.SingleOrDefault(x => x.TabBarItem == item);
+            if (controller != null)
+            {
+                if (controller is TopMoviesNavigationController)
+                {
+                    var selectedController = (TopMoviesNavigationController)controller;
+                    if(!selectedController.IsCategorySelected)
+                    {
+                        this.SetMenuNavigationButton();
+                    }
+                } 
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -62,14 +78,25 @@ namespace XamarinReference.iOS.Controller
             }
         }
 
+        public void SetupBackNavigationButton()
+        {
+            //setup the back button to go back to the category listing
+            _backButton = new UIBarButtonItem
+            {
+                Image = UIImage.FromBundle("back_white.png"),
+            };
+
+            this.NavigationItem.SetLeftBarButtonItem(_backButton, false);
+        }
+
         private void SetupTabs()
         {
-            tabTopMovies = new TopMoviesNavigationController
+            tabTopMovies = new TopMoviesNavigationController(TopMoviesCategoryController.MovieControllerType.TopMovies)
             {
                 TabBarItem = new UITabBarItem(_localizeLookupService.GetLocalizedString("TopMovies"), UIImage.FromBundle("f008.png"), 0),
                 HidesBottomBarWhenPushed = false,
             };
-            tabTopMovieRentals = new TopMovieRentalsController
+            tabTopMovieRentals = new TopMoviesNavigationController(TopMoviesCategoryController.MovieControllerType.TopMovieRentals)
             {
                 TabBarItem = new UITabBarItem(_localizeLookupService.GetLocalizedString("TopMovieRentals"), UIImage.FromBundle("f145.png"), 1),
                 HidesBottomBarWhenPushed = false
@@ -77,7 +104,7 @@ namespace XamarinReference.iOS.Controller
 
             tabTopMusicVideos = new TopMusicVideosController
             {
-                TabBarItem = new UITabBarItem(_localizeLookupService.GetLocalizedString("topMusicVideos"), UIImage.FromBundle("f001.png"), 2),
+                TabBarItem = new UITabBarItem(_localizeLookupService.GetLocalizedString("TopMusicVideos"), UIImage.FromBundle("f001.png"), 2),
                 HidesBottomBarWhenPushed = false
             };
 
@@ -90,15 +117,6 @@ namespace XamarinReference.iOS.Controller
 
             ViewControllers = tabs;
         }
-        public void SetupBackNavigationButton()
-        {
-            //setup the back button to go back to the category listing
-            _backButton = new UIBarButtonItem
-            {
-                Image = UIImage.FromBundle("back_white.png"),
-            };
-
-            this.NavigationItem.SetLeftBarButtonItem(_backButton, true);
-        }
+ 
     }
 }

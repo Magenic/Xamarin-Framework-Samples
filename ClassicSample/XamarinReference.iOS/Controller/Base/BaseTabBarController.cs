@@ -42,6 +42,12 @@ namespace XamarinReference.iOS.Controller
             NavMenuController.NavigationBar.BarTintColor = Helper.Theme.Color.C2;
         }
 
+        public override void ItemSelected(UITabBar tabbar, UITabBarItem item)
+        {
+            //base.ItemSelected(tabbar, item);
+            SetMenuNavigationButton();
+        }
+
         public void SetMenuNavigationButton ()
         {
             _menuButton = new UIBarButtonItem(UIImage.FromBundle("hamburger_menu_white.png")
@@ -50,7 +56,7 @@ namespace XamarinReference.iOS.Controller
                         {
                             SidebarMenuController.ToggleMenu();
                         });
-            NavigationItem.SetLeftBarButtonItem(_menuButton, true);
+            NavigationItem.SetLeftBarButtonItem(_menuButton, false);
         }
 
         protected override void Dispose(bool disposing)

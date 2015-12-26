@@ -47,7 +47,8 @@
     <Compile Include="Interface\IStringLookupService.cs" />
     <Compile Include="Interface\IVersionInfo.cs" />
     <Compile Include="Model\FontInfo.cs" />
-    <Compile Include="Model\iTunes.cs" />
+    <Compile Include="Model\iTunes\Movies.cs" />
+    <Compile Include="Model\iTunes\MusicVideos.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\LocalizedTerm.cs" />
     <Compile Include="Model\NavigationMenuItem.cs" />

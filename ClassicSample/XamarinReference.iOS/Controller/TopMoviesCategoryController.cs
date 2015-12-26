@@ -14,16 +14,31 @@ namespace XamarinReference.iOS.Controller
 {
     public class TopMoviesCategoryController : BaseTableViewController
     {
+        public enum MovieControllerType
+        {
+            TopMovies,
+            TopMovieRentals
+        };
+
+        private readonly MovieControllerType _controllerType;
         private readonly IITunesDataService _itunesService = Mvx.Resolve<IITunesDataService>();
         private readonly List<string> _genres;
 
         private static readonly string CellReuse = "GenreCell";
-        private UINavigationController _navController;
+        private TopMoviesNavigationController _navController;
 
-        public TopMoviesCategoryController(UINavigationController navController)
+        public TopMoviesCategoryController(TopMoviesNavigationController navController, MovieControllerType controllerType)
         {
             _genres = _itunesService.GetMovieGenres();
             _navController = navController;
+            _controllerType = controllerType;
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            TabBarController.Title = _localizeLookupService.GetLocalizedString("iTunes");
         }
 
         public override void ViewDidLoad()
@@ -49,15 +64,37 @@ namespace XamarinReference.iOS.Controller
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
+            //get the selected data at the row selected
             var genre = _genres[indexPath.Row];
-            _navController.PushViewController(new TopMoviesController(genre, _navController), true);
+
+            //push the proper TableController into the current view based on the selected genre
+            if (_controllerType == MovieControllerType.TopMovies)
+            {
+                _navController.PushViewController(new TopMoviesController(genre, _navController), true);
+            }
+            else
+            {
+                _navController.PushViewController(new TopMovieRentalsController(genre, _navController), true);
+            }
+            //notify the _navController we have a category selected for redraw when tabs are changed and come back to (remember state)
+            _navController.IsCategorySelected = true;
         }
 
 
         private void SetupUi()
         {
             this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);
-            this.Title = _localizeLookupService.GetLocalizedString("TopMovies");
+
+            if (_controllerType == MovieControllerType.TopMovies)
+            {
+                this.Title = _localizeLookupService.GetLocalizedString("TopMovies");
+            }
+            else
+            {
+                this.Title = _localizeLookupService.GetLocalizedString("TopMovieRentals");
+            }
+
+    
         }
 
     }
