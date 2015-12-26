@@ -93,8 +93,6 @@ namespace XamarinReference.iOS.Controller
             {
                 this.Title = _localizeLookupService.GetLocalizedString("TopMovieRentals");
             }
-
-    
         }
 
     }

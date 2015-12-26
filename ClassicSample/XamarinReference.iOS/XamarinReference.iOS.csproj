@@ -146,7 +146,9 @@
     <Compile Include="Controller\TopMoviesController.cs" />
     <Compile Include="Controller\TopMoviesCategoryController.cs" />
     <Compile Include="Controller\TopMoviesNavigationController.cs" />
+    <Compile Include="Controller\TopMusicVideosCategoryController.cs" />
     <Compile Include="Controller\TopMusicVideosController.cs" />
+    <Compile Include="Controller\TopMusicVideosNavigationController.cs" />
     <Compile Include="Controls\Cell\BusinessCardCell.cs" />
     <Compile Include="Controls\Cell\PicturePreviewCell.cs" />
     <Compile Include="Controls\View\BusinessCardView.cs" />

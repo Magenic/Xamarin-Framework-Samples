@@ -27,12 +27,6 @@ namespace XamarinReference.iOS.Controller
             SetupRootController();
         }
 
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
-
-        }
-
         public void SetTitle(string selectedGenre)
         {
             var selectedController = (_controllerType == TopMoviesCategoryController.MovieControllerType.TopMovies) ? _localizeLookupService.GetLocalizedString("TopMovies") : _localizeLookupService.GetLocalizedString("TopMovieRentals");

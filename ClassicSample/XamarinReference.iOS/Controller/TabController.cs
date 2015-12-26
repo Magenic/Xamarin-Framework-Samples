@@ -102,7 +102,7 @@ namespace XamarinReference.iOS.Controller
                 HidesBottomBarWhenPushed = false
             };
 
-            tabTopMusicVideos = new TopMusicVideosController
+            tabTopMusicVideos = new TopMusicVideosNavigationController 
             {
                 TabBarItem = new UITabBarItem(_localizeLookupService.GetLocalizedString("TopMusicVideos"), UIImage.FromBundle("f001.png"), 2),
                 HidesBottomBarWhenPushed = false
