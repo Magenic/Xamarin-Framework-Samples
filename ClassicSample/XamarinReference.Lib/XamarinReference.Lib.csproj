@@ -43,10 +43,13 @@
     <Compile Include="Interface\IITunesDataService.cs" />
     <Compile Include="Interface\IJobsService.cs" />
     <Compile Include="Interface\IKeyValueStorage.cs" />
+    <Compile Include="Interface\ILoggingFile.cs" />
+    <Compile Include="Interface\ILoggingService.cs" />
     <Compile Include="Interface\IMediaService.cs" />
     <Compile Include="Interface\INavigationMenuService.cs" />
     <Compile Include="Interface\IStringLookupService.cs" />
     <Compile Include="Interface\IVersionInfo.cs" />
+    <Compile Include="Logging\MessageType.cs" />
     <Compile Include="Model\FontInfo.cs" />
     <Compile Include="Model\iTunes\Movies.cs" />
     <Compile Include="Model\iTunes\MusicVideos.cs" />

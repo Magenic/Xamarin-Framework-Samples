@@ -11,7 +11,13 @@ namespace XamarinReference.iOS.Controller
 {
     public class BaseTabBarController : UITabBarController 
     {
+        //used to look up localized text based on language required
         protected readonly IStringLookupService _localizeLookupService = Mvx.Resolve<IStringLookupService>();
+
+        //used to look up logging based on how the app has logging setup 
+        protected readonly ILoggingService _logging = Mvx.Resolve<ILoggingService>();
+
+        //menuButton - used for the navigation bar hamburger menu bar button 
         private UIBarButtonItem _menuButton;
 
         protected SidebarNavigation.SidebarController SidebarMenuController
@@ -70,6 +76,11 @@ namespace XamarinReference.iOS.Controller
                     _menuButton = null;
                 }
             }
+        }
+
+        protected void DealWithErrors(Exception ex)
+        {
+            _logging.WriteLine(Lib.Logging.MessageType.Error, string.Format("Error Message: {0} .  Stack Trace: {1}", ex.Message, ex.StackTrace));
         }
     }
 }

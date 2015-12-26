@@ -21,6 +21,26 @@ namespace XamarinReference.iOS.Helper
         }
 
         /// <summary>
+        /// ReadAllTextContext - return a string of all the text in a given file
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public string ReadAllTextContent(string path)
+        {
+            return File.ReadAllText(path);
+        }
+
+        /// <summary>
+        /// AppendAllTextContent - write all the text to a given file
+        /// </summary>
+        /// <param name="path">path to the text file to write to</param>
+        /// <param name="text">text to append to the file</param>
+        public void AppendAllTextContent(string path, string text)
+        {
+            File.AppendAllText(path, text);
+        }
+
+        /// <summary>
         /// GetFiles - get a listing of files in a given path
         /// </summary>
         /// <param name="path"></param>

@@ -30,6 +30,7 @@ namespace XamarinReference.iOS
             Mvx.LazyConstructAndRegisterSingleton<IMediaService, MediaService>();
             Mvx.LazyConstructAndRegisterSingleton<ICreateHttpClientHelper, NSUrlConnectionHandlerCreator>();
             Mvx.LazyConstructAndRegisterSingleton<IITunesDataService, ITunesDataService>();
+            Mvx.LazyConstructAndRegisterSingleton<ILoggingService, FileLoggingService>();
         }
     }
 }

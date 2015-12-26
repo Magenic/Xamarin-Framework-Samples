@@ -5,6 +5,7 @@
 "BuildOsVersion"="OS Version: ";
 "BuildVersion"="App Version: ";
 "BusinessCardTitle"="Business Card";
+"DeveloperLogging"="Logging";
 "DeveloperOptions"="Developer Options";
 "Calendar"="Calendar";
 "Camera"="Camera";
@@ -13,6 +14,9 @@
 "Delete"="Delete";
 "DeleteFileMessage"="Are you sure you would like to delete this file?";
 "iTunes"="iTunes";
+"LogFileDelete"="Delete Log File";
+"LogFileShare"="Share Log File";
+"LogFileView"="View Log File";
 "PercentPrep"="In Prep";
 "PercentWork"="Work";
 "PercentDelivery"="Delivery";

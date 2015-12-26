@@ -1,6 +1,4 @@
-﻿
-using Cirrious.CrossCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Net;
@@ -10,10 +8,14 @@ using System.Threading.Tasks;
 using XamarinReference.Lib.Helper;
 using XamarinReference.Lib.Interface;
 
+using Cirrious.CrossCore;
+
 namespace XamarinReference.Lib.Services
 {
     public abstract class BaseHttpService
     {
+        private readonly ILoggingService _loggingService = Mvx.Resolve<ILoggingService>();
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
@@ -149,6 +151,7 @@ namespace XamarinReference.Lib.Services
 
         protected void DealWithErrors(Exception ex)
         {
+            _loggingService.WriteLine(Logging.MessageType.Error, string.Format("Error Message: {0} .  Stack Trace: {1}", ex.Message, ex.StackTrace));
         }
     }
 }

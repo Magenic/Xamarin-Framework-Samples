@@ -17,7 +17,10 @@ namespace XamarinReference.iOS.Controller
     {
      
         private readonly IVersionInfo _versionInfo = Mvx.Resolve<IVersionInfo>();
-        public AboutController() { }
+
+        public AboutController()
+        {
+        }
 
         public override void ViewDidLoad()
         {
@@ -90,6 +93,7 @@ namespace XamarinReference.iOS.Controller
                     break;
                 case 1:
                     //do something with developer cell - call another view
+                    this.NavMenuController.PushViewController(new DeveloperOptionsController(), true);
                     break;
 
             }

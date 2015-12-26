@@ -15,6 +15,15 @@ namespace XamarinReference.Lib.Interface
         void Delete(string path);
 
         /// <summary>
+        /// Read all file text from the specified file path
+        /// </summary>
+        /// <param name="path">file path</param>
+        /// <returns>string value of text in the file</returns>
+        string ReadAllTextContent(string path);
+
+        void AppendAllTextContent(string path, string text);
+
+        /// <summary>
         /// GetFiles - get a listing of files in a given path
         /// </summary>
         /// <param name="path"></param>

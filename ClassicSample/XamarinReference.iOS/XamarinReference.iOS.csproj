@@ -115,6 +115,8 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\DeveloperOptionsController.cs" />
+    <Compile Include="Services\FileLoggingService.cs" />
     <Compile Include="Controller\AboutController.cs" />
     <Compile Include="Controller\Base\BaseController.cs" />
     <Compile Include="Controller\Base\BaseTabBarController.cs" />
