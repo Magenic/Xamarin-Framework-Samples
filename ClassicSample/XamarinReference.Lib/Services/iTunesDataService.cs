@@ -34,7 +34,7 @@ namespace XamarinReference.Lib.Services
             return string.Empty;
         }
 
-        public string GetMusicViceoGenreByKey(string key)
+        public string GetMusicVideoGenreByKey(string key)
         {
             try
             {
@@ -75,12 +75,32 @@ namespace XamarinReference.Lib.Services
             return list;
         }
 
-        public async Task<Model.iTunes.MusicVideos.MusicVideo> GetMusicVideosAsync(int count = 20, string genre = "")
+        public async Task<Model.iTunes.MusicVideos.MusicVideo> GetMusicVideosAsync(int count = 20, string genre = "1614")
         {
-            return null;
+            Model.iTunes.MusicVideos.MusicVideo videos =  null;
+            if (genre != "1614")
+            {
+                genre = this.GetMusicVideoGenreByKey(genre);
+            }
+            try
+            {
+                var uri = BuildMusicVideoUrl(count, genre);
+                var httpResponse = await this.GetAsync(new Uri(uri), null);
+                var response = httpResponse;
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    videos = JsonConvert.DeserializeObject<Model.iTunes.MusicVideos.MusicVideo>(json);
+                }
+                else
+                    response = (HttpResponseMessage)null;
+            }
+            catch (Exception ex)
+            {
+                this.DealWithErrors(ex);
+            }
+            return videos;
         }
-
-
 
         public async Task<Model.iTunes.Movies.Movie> GetMoviesAsync(Model.iTunes.Movies.Movie.ListingType type = Model.iTunes.Movies.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
         {
@@ -107,6 +127,21 @@ namespace XamarinReference.Lib.Services
                 this.DealWithErrors(ex);
             }
             return movies;
+        }
+        public string BuildMusicVideoUrl(int limit = 0, string genre = "1614")
+        {
+            var stringBuilder = new StringBuilder(this._urlBase);
+            stringBuilder.Append(this._topMusicVideos);
+            if(limit > 0)
+            {
+                stringBuilder.Append(this._limit);
+                stringBuilder.Append(limit.ToString());
+            }
+            stringBuilder.Append(this._genre);
+            stringBuilder.Append(genre);
+            stringBuilder.Append("/json");
+            return stringBuilder.ToString();
+
         }
 
         public string BuildMoviesUrl(Model.iTunes.Movies.Movie.ListingType type = Model.iTunes.Movies.Movie.ListingType.TopMovies, int limit = 0, string genre = "4413")

@@ -29,6 +29,13 @@ namespace XamarinReference.iOS.Controller
             _navController = navController;
         }
 
+        public override async void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+            await SetupUi();
+            this.TableView.ReloadData();
+        }
+
         public override void ViewDidAppear(bool animated)
         {
             SetupBackButton();
@@ -52,7 +59,7 @@ namespace XamarinReference.iOS.Controller
             var cell = tableView.DequeueReusableCell(CellReuse, indexPath);
 
             cell.Accessory = UITableViewCellAccessory.None;
-            cell.TextLabel.Text = musicVideo.ImName.Label;
+            cell.TextLabel.Text = string.Format("{0} - {1}",  musicVideo.ImName.Label, musicVideo.ImArtist.Label);
             cell.TextLabel.Font = Helper.Theme.Font.F2(Helper.Theme.Font.H4);
 
             return cell;
