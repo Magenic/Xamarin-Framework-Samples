@@ -54,6 +54,18 @@ namespace XamarinReference.iOS.Controller
             return cell;
         }
 
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            //get the selected data at the row selected
+            var genre = _genres[indexPath.Row];
+
+            _navController.PushViewController(new TopMusicVideosController(genre, _navController), true);
+
+            //notify the _navController we have a category selected for redraw when tabs are changed and come back to (remember state)
+            _navController.IsCategorySelected = true;
+
+        }
+
         private void SetupUi()
         {
             this.TableView.RegisterClassForCellReuse(typeof(UITableViewCell), CellReuse);

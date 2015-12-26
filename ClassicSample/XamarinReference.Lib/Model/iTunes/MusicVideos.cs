@@ -203,7 +203,7 @@ namespace XamarinReference.Lib.Model.iTunes.MusicVideos
         public Id Id { get; set; }
     }
 
-    public class MusicVidoe 
+    public class MusicVideo 
     {
         [JsonProperty("feed")]
         public Feed Feed { get; set; }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+
 using XamarinReference.Lib.Interface;
 
 namespace XamarinReference.Lib.Services
@@ -73,6 +74,13 @@ namespace XamarinReference.Lib.Services
             }
             return list;
         }
+
+        public async Task<Model.iTunes.MusicVideos.MusicVideo> GetMusicVideosAsync(int count = 20, string genre = "")
+        {
+            return null;
+        }
+
+
 
         public async Task<Model.iTunes.Movies.Movie> GetMoviesAsync(Model.iTunes.Movies.Movie.ListingType type = Model.iTunes.Movies.Movie.ListingType.TopMovies, int count = 20, string genre = "4413")
         {

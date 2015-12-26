@@ -18,8 +18,6 @@ namespace XamarinReference.iOS.Controller
         private readonly IITunesDataService _itunesService = Mvx.Resolve<IITunesDataService>();
         private static readonly string CellReuse = "MovieCell";
 
-        private UIBarButtonItem _backButton;
-
         private string _genre;
         private Lib.Model.iTunes.Movies.Movie _movies;
         private TopMoviesNavigationController _navController;
@@ -37,6 +35,7 @@ namespace XamarinReference.iOS.Controller
             _navController.SetTitle(_genre);
             base.ViewDidAppear(animated);
         }
+
         public override async void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -89,23 +88,6 @@ namespace XamarinReference.iOS.Controller
                     tabController.SetMenuNavigationButton();
                     tabController.Title = _localizeLookupService.GetLocalizedString("iTunes");
                 };
-            }
-        }
-
-        /// <summary>
-        /// Dispose - clean up memory
-        /// </summary>
-        /// <param name="disposing"></param>
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (disposing)
-            {
-                if (_backButton != null)
-                {
-                    _backButton.Dispose();
-                    _backButton = null;
-                }
             }
         }
     }
