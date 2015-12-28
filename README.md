@@ -8,4 +8,4 @@ MVVMCrossSample - Xamarin Classic app using MVVMCross and MVVM patterns and plug
 
 Some images and fonts are provided via Font Awesome by Dave Gandy - http://fontawesome.io
 
--Aaron
+-Magenic Mobile Dev Team
