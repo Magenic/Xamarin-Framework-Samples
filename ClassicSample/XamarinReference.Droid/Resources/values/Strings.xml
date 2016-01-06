@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">XamarinReference.Droid</string>
+    <string name="About">About</string>
+    <string name="AboutBuild">Build Information</string>
+    <string name="AboutDeveloper">Developer</string>
+    <string name="BuildDate">Build Date: </string>
+    <string name="BuildOsVersion">OS Version: </string>
+    <string name="BuildVersion">App Version: </string>
+    <string name="BusinessCardTitle">Business Card</string>
+    <string name="DeveloperLogging">Logging</string>
+    <string name="DeveloperOptions">Developer Options</string>
+    <string name="Calendar">Calendar</string>
+    <string name="Camera">Camera</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Confirm">Confirm</string>
+    <string name="Delete">Delete</string>
+    <string name="DeleteFileMessage">Are you sure you would like to delete this file?</string>
+    <string name="iTunes">iTunes</string>
+    <string name="LogFileDelete">Delete Log File</string>
+    <string name="LogFileShare">Share Log File</string>
+    <string name="LogFileView">View Log File</string>
+    <string name="PercentPrep">In Prep</string>
+    <string name="PercentWork">Work</string>
+    <string name="PercentDelivery">Delivery</string>
+    <string name="TaskInProgress">In Progress</string>
+    <string name="TaskInReview">In Review</string>
+    <string name="TaskForReview">My Tasks</string>
+    <string name="TaskToDo">To Do</string>
+    <string name="Tasks">Tasks</string>
+    <string name="ThemeColors">Theme Colors</string>
+    <string name="ThemeFonts">Theme Fonts</string>
+    <string name="ToDo">To Do</string>
+    <string name="TopMovies">Movie Sales</string>
+    <string name="TopMovieRentals">Movie Rentals</string>
+    <string name="TopMusicVideos">Music Videos</string>
 </resources>

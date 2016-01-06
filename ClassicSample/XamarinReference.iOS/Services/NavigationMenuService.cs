@@ -16,7 +16,7 @@ namespace XamarinReference.iOS.Services
 {
     public class NavigationMenuService : INavigationMenuService<UIViewController>
     {
-        private readonly IStringLookupService _LocalizedStrings = Mvx.Resolve<IStringLookupService>();
+        private readonly IStringLookupService _localizedStrings = Mvx.Resolve<IStringLookupService>();
 
         public IList<NavigationMenuItem<UIViewController>> MenuItems { get; set; }
 
@@ -28,74 +28,74 @@ namespace XamarinReference.iOS.Services
                 {
                     IsEnabled =  true,
                     Manager = new BusinessCardController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Business Card")
+                    Title = _localizedStrings.GetLocalizedString("Business Card")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new TabController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Tab Navigation")
+                    Title = _localizedStrings.GetLocalizedString("Tab Navigation")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new StickyHeaderController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Sticky Header")
+                    Title = _localizedStrings.GetLocalizedString("Sticky Header")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new CameraController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Camera")
+                    Title = _localizedStrings.GetLocalizedString("Camera")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new GeolocationController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Geolocation")
+                    Title = _localizedStrings.GetLocalizedString("Geolocation")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new NetworkConnectivityController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Network Connectivity")
+                    Title = _localizedStrings.GetLocalizedString("Network Connectivity")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new PdfStitchingController(),
-                    Title = _LocalizedStrings.GetLocalizedString("PDF Stitching")
+                    Title = _localizedStrings.GetLocalizedString("PDF Stitching")
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new PingController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Ping")
+                    Title = _localizedStrings.GetLocalizedString("Ping")
                 },
 
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new AboutController(), 
-                    Title = _LocalizedStrings.GetLocalizedString("About") 
+                    Title = _localizedStrings.GetLocalizedString("About") 
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new ThemeColorController(), 
-                    Title = _LocalizedStrings.GetLocalizedString("Theme Colors") 
+                    Title = _localizedStrings.GetLocalizedString("Theme Colors") 
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new ThemeFontController(), 
-                    Title = _LocalizedStrings.GetLocalizedString("Theme Fonts") 
+                    Title = _localizedStrings.GetLocalizedString("Theme Fonts") 
                 },
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
                     Manager = new FontController(),
-                    Title = _LocalizedStrings.GetLocalizedString("Fonts Loaded") 
+                    Title = _localizedStrings.GetLocalizedString("Fonts Loaded") 
                 },
 
             };    

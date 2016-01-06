@@ -10,16 +10,16 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace XamarinReference.Droid
+using XamarinReference.Droid.Activities.Base;
+
+namespace XamarinReference.Droid.Activities
 {
-    [Activity(MainLauncher =true)]
-    public class MainActivity : Activity
+    [Activity(Label = "About")]
+    public class AboutActivity : BaseActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your application here
         }
     }
 }

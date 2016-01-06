@@ -46,7 +46,7 @@ namespace XamarinReference.Lib.Services
                         client.DefaultRequestHeaders.Add(header.Key, header.Value);
                         header = new KeyValuePair<string, string>();
                     }
-                    List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
+                    //List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
                 }
                 HttpResponseMessage httpResponseMessage = await client.GetAsync(uri);
                 HttpResponseMessage response = httpResponseMessage;
@@ -76,7 +76,7 @@ namespace XamarinReference.Lib.Services
                         client.DefaultRequestHeaders.Add(header.Key, header.Value);
                         header = new KeyValuePair<string, string>();
                     }
-                    List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
+                    //List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
                 }
                 HttpResponseMessage httpResponseMessage = await client.DeleteAsync(uri);
                 httpResponseMessage1 = httpResponseMessage;
@@ -105,7 +105,7 @@ namespace XamarinReference.Lib.Services
                         client.DefaultRequestHeaders.Add(header.Key, header.Value);
                         header = new KeyValuePair<string, string>();
                     }
-                    List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
+                    //List<KeyValuePair<string, string>>.Enumerator enumerator = new List<KeyValuePair<string, string>>.Enumerator();
                 }
                 sc = new StringContent(content, Encoding.UTF8, "application/json");
                 HttpMethod method = new HttpMethod(httpMethod);
