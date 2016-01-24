@@ -84,8 +84,6 @@
   <ItemGroup>
     <Compile Include="Activities\AboutActivity.cs" />
     <Compile Include="Activities\Base\BaseActivity.cs" />
-    <Compile Include="Helper\Theme\Color.cs" />
-    <Compile Include="Helper\Theme\Font.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Network\AndriodHttpClientHandler.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
