@@ -24,7 +24,7 @@ namespace XamarinReference.Droid
             MvxSimpleIoCContainer.Initialize();
 
             Mvx.LazyConstructAndRegisterSingleton<INavigationMenuService<Activity>, NavigationMenuService>();
-            Mvx.LazyConstructAndRegisterSingleton<IStringLookupService, StringLookupService>();
+            Mvx.LazyConstructAndRegisterSingleton<IStringLookupService, new StringLookup(this.ApplicationContext)>();
         }  
     }
 }
