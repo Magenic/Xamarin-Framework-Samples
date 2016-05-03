@@ -19,17 +19,22 @@ namespace XamarinReference.Droid.Services
     public class StringLookupService : IStringLookupService
     {
         private Context _applicationContext; 
-
-        public StringLookupService(Context applicationContext)
+        public Context ApplicationContext 
         {
-            _applicationContext = applicationContext;     
+            get { return _applicationContext;}
+            set { _applicationContext = value; }
         }
+        public StringLookupService() { }
 
         public string GetLocalizedString(string value)
         {
-            var packageName = _applicationContext.PackageName;
-            int resourceId = _applicationContext.Resources.GetIdentifier(value, "string", packageName);
-            return _applicationContext.GetString(resourceId);
+            if (_applicationContext != null)
+            {
+                var packageName = _applicationContext.PackageName;
+                int resourceId = _applicationContext.Resources.GetIdentifier(value, "string", packageName);
+                return _applicationContext.GetString(resourceId);
+            }
+            return string.Empty;
         }
     }
 }
