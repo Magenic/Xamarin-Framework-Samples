@@ -24,7 +24,11 @@ namespace XamarinReference.Droid.Services
             get { return _applicationContext;}
             set { _applicationContext = value; }
         }
-        public StringLookupService() { }
+        
+        public StringLookup(Context applicationContext)
+        {
+            _applicationContext = applicationContext;
+        }
 
         public string GetLocalizedString(string value)
         {
