@@ -1,17 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
+using MvvmCross.Platform.IoC;
+using MvvmCross.Platform;
 using XamarinReference.Lib.Interface;
 using XamarinReference.Droid.Services;
 
@@ -24,7 +14,7 @@ namespace XamarinReference.Droid
             MvxSimpleIoCContainer.Initialize();
 
             Mvx.LazyConstructAndRegisterSingleton<INavigationMenuService<Activity>, NavigationMenuService>();
-            Mvx.RegisterSingleton(typeof(IStringLookup), new StringLookup(this.ApplicationContext));
+            Mvx.RegisterSingleton(typeof(IStringLookupService), new StringLookupService(Android.App.Application.Context));
         }  
     }
 }

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-using Foundation;
 using UIKit;
 
 using System.Threading.Tasks;
-using Cirrious.CrossCore;
-using XamarinReference.Lib.Interface;
 
 namespace XamarinReference.iOS.Helper
 {

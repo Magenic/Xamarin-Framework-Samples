@@ -1,12 +1,9 @@
-﻿using System;
+﻿using MvvmCross.Platform;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using UIKit;
-
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
 
 using XamarinReference.iOS.Controller;
 using XamarinReference.Lib.Interface;
@@ -94,7 +91,7 @@ namespace XamarinReference.iOS.Services
                 new NavigationMenuItem<UIViewController>
                 {
                     IsEnabled =  true,
-                    Manager = new FontController(),
+                    Manager = new FontController(Mvx.Resolve<IFontInfoService>()),
                     Title = _localizedStrings.GetLocalizedString("Fonts Loaded") 
                 },
 

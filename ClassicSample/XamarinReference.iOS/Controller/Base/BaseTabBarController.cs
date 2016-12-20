@@ -4,8 +4,8 @@ using System.Text;
 
 using UIKit;
 using Foundation;
-using Cirrious.CrossCore;
 using XamarinReference.Lib.Interface;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {

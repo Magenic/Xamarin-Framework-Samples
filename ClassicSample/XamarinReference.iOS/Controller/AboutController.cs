@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
 
 using Foundation;
 using UIKit;
 
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Services;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {
     public class AboutController : BaseTableViewController
     {
-     
-        private readonly IVersionInfo _versionInfo = Mvx.Resolve<IVersionInfo>();
+
+        private readonly IVersionInfo _versionInfo = Mvx.Resolve<IVersionInfo>(); 
 
         public AboutController()
         {

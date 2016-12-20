@@ -7,12 +7,10 @@ using UIKit;
 using CoreGraphics;
 using Foundation;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using XamarinReference.iOS.Services;
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Model;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {

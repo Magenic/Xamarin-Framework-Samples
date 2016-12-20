@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Foundation;
 using UIKit;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Model;
 using XamarinReference.iOS.Controls.Cell;
+
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {

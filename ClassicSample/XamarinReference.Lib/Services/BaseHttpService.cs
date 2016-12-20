@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using XamarinReference.Lib.Helper;
 using XamarinReference.Lib.Interface;
 
-using Cirrious.CrossCore;
+using MvvmCross.Platform;
 
 namespace XamarinReference.Lib.Services
 {

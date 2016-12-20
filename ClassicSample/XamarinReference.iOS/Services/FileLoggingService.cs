@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MvvmCross.Platform;
 
-using Cirrious.CrossCore;
+using System;
 
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Logging;

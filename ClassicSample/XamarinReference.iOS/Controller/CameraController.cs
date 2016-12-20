@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 using Foundation;
 using UIKit;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using Xamarin.Media;
-using XamarinReference.iOS.Helper;
 using XamarinReference.iOS.Controls.Cell;
 using XamarinReference.Lib.Interface;
 
 using SWTableViewCells;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Cirrious.CrossCore;
 using SidebarNavigation;
 using UIKit;
 
 using XamarinReference.Lib.Interface;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {

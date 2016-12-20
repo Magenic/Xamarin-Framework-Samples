@@ -25,7 +25,7 @@ namespace XamarinReference.Droid.Services
             set { _applicationContext = value; }
         }
         
-        public StringLookup(Context applicationContext)
+        public StringLookupService(Context applicationContext)
         {
             _applicationContext = applicationContext;
         }

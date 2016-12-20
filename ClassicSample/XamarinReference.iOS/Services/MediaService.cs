@@ -1,11 +1,6 @@
-﻿using System;
+﻿using MvvmCross.Platform;
+
 using System.Collections.Generic;
-using System.Text;
-
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
-using Xamarin.Media;
 
 using XamarinReference.Lib.Interface;
 

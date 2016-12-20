@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Foundation;
 using UIKit;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Model;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controller
 {
@@ -18,7 +14,7 @@ namespace XamarinReference.iOS.Controller
     {
 
         //used to get the fonts loaded in by the application
-        private readonly IFontInfoService _fontInfoService = Mvx.Resolve<IFontInfoService>();
+        private readonly IFontInfoService _fontInfoService; 
         //used for memory management by reusing cells 
         private const string CellResuse = "FontNameCell";
 
@@ -28,9 +24,9 @@ namespace XamarinReference.iOS.Controller
         //used for indexing section letters
         private List<string> _indexTitles;
 
-        public FontController()
+        public FontController(IFontInfoService fontInfoService)
         {
-            _fontInfoList = _fontInfoService.GetAvailableFonts();
+            _fontInfoList = fontInfoService.GetAvailableFonts();
             CalculateIndexTitles();
         }
 

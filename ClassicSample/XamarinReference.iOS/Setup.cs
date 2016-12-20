@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
 using UIKit;
 
 using XamarinReference.Lib.Interface;
@@ -12,6 +9,9 @@ using XamarinReference.iOS.Services;
 using XamarinReference.Lib.Services;
 using XamarinReference.iOS.Helper;
 using XamarinReference.iOS.Network;
+
+using MvvmCross.Platform.IoC;
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS
 {

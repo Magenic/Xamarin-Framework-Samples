@@ -1,22 +1,15 @@
-﻿using CoreAnimation;
-using Foundation;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 using UIKit;
 
-
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-
-using XamarinReference.iOS.Controls.View;
 using XamarinReference.iOS.Helper;
 using XamarinReference.Lib.Interface;
 using XamarinReference.Lib.Model;
 
 //xamarin control for radial progress
 using RadialProgress;
+
+using MvvmCross.Platform;
 
 namespace XamarinReference.iOS.Controls.Cell
 {
